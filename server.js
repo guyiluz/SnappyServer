@@ -11,7 +11,10 @@ var uri = "mongodb://guyiluz:juaua123@cluster0-shard-00-00-hmkj1.mongodb.net:270
 mongoose.connect(uri)
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
-
+app.use(function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+})
 app.use('/api',require('./routes/api'))
 app.get('/',(req,res)=>{
 
