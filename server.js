@@ -2,6 +2,7 @@
 const express =require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+var cors = require('cors')
 const app = express()
 
 var port = process.env.PORT || 8080;
@@ -9,12 +10,10 @@ var uri = "mongodb://guyiluz:juaua123@cluster0-shard-00-00-hmkj1.mongodb.net:270
 
 
 mongoose.connect(uri)
+app.use(cors())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
-app.use(function(req, res) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-})
+
 app.use('/api',require('./routes/api'))
 app.get('/',(req,res)=>{
 
