@@ -2,7 +2,7 @@ var  restful = require('node-restful')
 var mongoose =restful.mongoose;
 
 var qSchem = new  mongoose.Schema({
-    firstName:String,
+ firstName:String,
     lastName:String,
     state:String,
     adress:String,
