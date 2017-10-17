@@ -4,11 +4,13 @@ var mongoose =restful.mongoose;
 var qSchem = new  mongoose.Schema({
     firstName:String,
     lastName:String,
+    state:String,
+    adress:String,
     city:String,
-    floor:String,
     zipCode:Number,
+    apartment:String,
+    floor:String,
     email:String,
-    EmailSddress:String,
     phoneNumber:Number,
     specialNotes:String
 
